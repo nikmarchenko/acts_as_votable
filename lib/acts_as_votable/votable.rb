@@ -11,7 +11,7 @@ module ActsAsVotable
       aliases = {
 
         :vote_up => [
-          :up_by, :upvote_by, :like_by, :liked_by, 
+          :up_by, :upvote_by, :like_by, :liked_by,
           :up_from, :upvote_from, :upvote_by, :like_from, :liked_from, :vote_from
         ],
 
@@ -85,8 +85,8 @@ module ActsAsVotable
       if _votes_.count == 0 or options[:duplicate]
         # this voter has never voted
         vote = ActsAsVotable::Vote.new(
-          :votable => self,
-          :voter => options[:voter],
+          :votable    => self,
+          :voter_id   => options[:voter].id,
           :vote_scope => options[:vote_scope]
         )
       else
