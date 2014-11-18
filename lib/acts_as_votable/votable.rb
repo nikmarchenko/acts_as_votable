@@ -87,7 +87,8 @@ module ActsAsVotable
         vote = ActsAsVotable::Vote.new(
           :votable    => self,
           :voter_id   => options[:voter].id,
-          :vote_scope => options[:vote_scope]
+          :vote_scope => options[:vote_scope],
+          :voter_type => options[:voter].class.base_class.name
         )
       else
         # this voter is potentially changing his vote
